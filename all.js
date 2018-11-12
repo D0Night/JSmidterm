@@ -69,7 +69,12 @@ xhr.onload = function(){
     for(var i=0;i<data.length;i++){
       document.querySelector('.area').textContent=_d;
       document.querySelector('.type').textContent=_t;
-      if(_d==data[i].ZipName_  && _t== ''){
+      if(_d=='' && _t==data[i].InformDesc_ ){
+        document.querySelector('.area').textContent='全部 ';
+        str +='<li><h4>地點：'+data[i].address_+'</h4><h5>報案狀況：'+data[i].BeforeDesc_+'</h5></li>';
+        n++;
+      }
+      else if(_d==data[i].ZipName_  && _t== ''){
         str +='<li><h4>地點：'+data[i].address_+'</h4><h5>報案狀況：'+data[i].BeforeDesc_+'</h5></li>';
         n++;
       }
